@@ -1,0 +1,21 @@
+import os
+
+def new_directory(directory, filename):
+    # Before creating a new directory, check to see if it already exists
+    if not os.path.isdir(directory):
+      print("no file")
+      os.mkdir(directory)
+      pathdir=os.path.abspath(directory)
+
+    # Create the new file inside the new directory
+    
+    os.chdir(pathdir)
+    file_path=os.path.join(pathdir,filename)
+    with open(file_path,'w') as file:
+        pass
+
+    # Return the list of files in the new directory
+    files = os.listdir(pathdir)
+    return files
+
+print(new_directory("PythonPrograms", "script.py"))
